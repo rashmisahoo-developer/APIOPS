@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "displayName": "movies_products",
+    "scope": "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.ApiManagement/service/apim-test-vm/products/movies-products",
+    "allowTracing": false,
+    "ownerId": "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.ApiManagement/service/apim-test-vm/users/68b5de8d4634611844b5a543",
+    "state": "submitted"
+  }
+}

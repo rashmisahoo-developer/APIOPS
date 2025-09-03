@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "displayName": "movies_products",
+    "description": "movies-products",
+    "approvalRequired": true,
+    "state": "published",
+    "subscriptionRequired": true
+  }
+}

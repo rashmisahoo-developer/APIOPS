@@ -1,0 +1,39 @@
+openapi: 3.0.1
+info:
+  title: Mock Response
+  description: ''
+  version: v1
+servers:
+  - url: https://apim-test-vm.azure-api.net/v1
+paths:
+  /mock-response:
+    get:
+      summary: Mock_Response
+      operationId: mock-response
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                status: success
+                description: Its just a mock response
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
