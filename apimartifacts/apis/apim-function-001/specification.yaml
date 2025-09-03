@@ -1,0 +1,34 @@
+openapi: 3.0.1
+info:
+  title: apim-function-001
+  description: Import from "apim-function-001" Function App
+  version: '1.0'
+servers:
+  - url: https://apim-test-vm.azure-api.net/apim-function-001
+paths:
+  /trigger_apim:
+    post:
+      summary: trigger_apim
+      operationId: post-trigger-apim
+      responses:
+        '200':
+          description: ''
+    get:
+      summary: trigger_apim
+      operationId: get-trigger-apim
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

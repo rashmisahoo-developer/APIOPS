@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "path": "",
+    "apiRevision": "1",
+    "apiVersionSetId": "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.ApiManagement/service/apim-test-vm/apiVersionSets/68b59ebf63af03d38a92fbe6",
+    "authenticationSettings": {},
+    "description": "",
+    "isCurrent": true,
+    "displayName": "Mock Response",
+    "protocols": [
+      "https"
+    ],
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": false
+  }
+}

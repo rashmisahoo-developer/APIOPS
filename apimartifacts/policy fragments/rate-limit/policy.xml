@@ -1,0 +1,9 @@
+<!--
+    IMPORTANT:
+    - Policy fragment are included as-is whenever they are referenced.
+    - If using variables. Ensure they are setup before use.
+    - Copy and paste your code here or simply start coding
+-->
+<fragment>
+	<rate-limit-by-key calls="3" renewal-period="20" counter-key="@(context.Subscription?.Key ?? "anonymous")" />
+</fragment>

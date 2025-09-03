@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "scope": "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.ApiManagement/service/apim-test-vm/products/weather-products",
+    "allowTracing": false,
+    "ownerId": "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.ApiManagement/service/apim-test-vm/users/1",
+    "state": "active"
+  }
+}
