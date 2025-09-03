@@ -29,7 +29,9 @@ jobs:
     environment: dev # change this to match the dev environment created in settings 
     steps:
       - uses: actions/checkout@v4
-          
+      - name: Run extractor script
+        run: .\extractor.ps1
+        shell: powershell
       - name: Run extractor without Config Yaml
         if: ${{ github.event.inputs.CONFIGURATION_YAML_PATH == 'Extract All APIs' }}
         env:
