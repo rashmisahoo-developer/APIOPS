@@ -29,7 +29,20 @@ jobs:
     environment: dev # change this to match the dev environment created in settings 
     steps:
       - uses: actions/checkout@v4
-      
+      - name: Download PowerShell Core
+        run: |
+          Invoke-WebRequest -Uri https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/PowerShell-7.4.3-win-x64.zip -OutFile pwsh.zip
+          Expand-Archive pwsh.zip -DestinationPath C:\pwsh
+        shell: powershell
+
+      - name: Verify pwsh
+        run: C:\pwsh\pwsh-7.4.3-win-x64\pwsh.exe -v
+        shell: powershell
+
+      - name: Run extractor
+        run: C:\pwsh\pwsh-7.4.3-win-x64\pwsh.exe ./extractor.ps1
+        shell: powershell
+        
       - name: Run extractor without Config Yaml
         if: ${{ github.event.inputs.CONFIGURATION_YAML_PATH == 'Extract All APIs' }}
         env:
