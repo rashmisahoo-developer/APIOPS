@@ -105,7 +105,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "Running publisher failed."}
 
           Write-Information "Execution complete."
-        shell: pwsh
+        shell: powershell
 
       - name: Run publisher without Config Yaml or Commit ID
         if: ( inputs.CONFIGURATION_YAML_PATH == '' &&  inputs.COMMIT_ID == '')
@@ -160,7 +160,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "Running publisher failed."}
 
           Write-Information "Execution complete."
-        shell: pwsh
+        shell: powershell
 
       - name: Run publisher with Config Yaml and Commit id
         if: ( inputs.CONFIGURATION_YAML_PATH != '' &&  inputs.COMMIT_ID != '')
@@ -217,7 +217,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "Running publisher failed."}
 
           Write-Information "Execution complete."
-        shell: pwsh
+        shell: powershell
 
       - name: Run publisher with Config Yaml but without Commit id
         if: ( inputs.CONFIGURATION_YAML_PATH != '' &&  inputs.COMMIT_ID == '')
@@ -273,4 +273,4 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "Running publisher failed."}
 
           Write-Information "Execution complete."
-        shell: pwsh
+        shell: powershell
