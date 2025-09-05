@@ -12,7 +12,7 @@ namedValues:
     properties:
       displayName: apim-function-001-key
       value: "pwKT3IwuFr06WxMc6k7QgQWI98ixhRUnQPVn6GGSOMQNAzFu2l5-vA=="
-  - name: Logger-Credentials-AppInsights
+  - name: 68bb238d46346119205e1095
     properties:
       displayName: Logger-Credentials-AppInsights
       value: "894a16e1-bc04-414e-9ec3-d21317b5da5c"
