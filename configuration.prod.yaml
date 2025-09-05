@@ -3,11 +3,11 @@ namedValues:
   - name: plainvalue
     properties:
       displayName: plainvalue
-      value: "https://www.devsearch2.com"
+      value: "https://www.prod.search2.com"
   - name: secret
     properties:
       displayName: secret
-      value: "devsecret"
+      value: "PRODsecret"
 loggers:
 diagnostics:
 backends:
