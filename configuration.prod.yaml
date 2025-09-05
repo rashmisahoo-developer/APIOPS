@@ -17,6 +17,6 @@ diagnostics:
 backends:
   - name: apim-function-001 #from fa
     properties:
-      url: "https://helloworldfromprodfuncapp.azurewebsites.net/api"
+      url: "https://demo-func-prod-bzf0a4c8dyexhegt.canadacentral-01.azurewebsites.net/api"
       resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/demo-func-PROD_group/providers/Microsoft.Web/sitesdemo-func-PROD" #to fa
 apis:
