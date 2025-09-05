@@ -23,7 +23,7 @@ loggers:
         description: prod application insights
         resourceId: "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/microsoft.insights/components/demo-appinsights-prod"
         credentials:
-          instrumentationKey: "{{ Logger-Credentials-AppInsights }}"
+          instrumentationKey: "{{Logger-Credentials-AppInsights}}"
         isBuffered: true
 diagnostics:
 backends:
