@@ -8,7 +8,15 @@ namedValues:
     properties:
       displayName: secret
       value: "PRODsecret"
+  - name: apim-function-001-key
+    properties:
+      displayName: apim-function-001-key
+      value: "pwKT3IwuFr06WxMc6k7QgQWI98ixhRUnQPVn6GGSOMQNAzFu2l5-vA=="
 loggers:
 diagnostics:
 backends:
+  - name: apim-function-001 #from fa
+    properties:
+      url: "https://helloworldfromprodfuncapp.azurewebsites.net/api"
+      resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/demo-func-PROD_group/providers/Microsoft.Web/sitesdemo-func-PROD" #to fa
 apis:
