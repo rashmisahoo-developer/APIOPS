@@ -9,6 +9,7 @@
 	<inbound>
 		<base />
 		<include-fragment fragment-id="common-security-policy" />
+		<rate-limit-by-key calls="30" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
 	</inbound>
 	<!-- Control if and how the requests are forwarded to services  -->
 	<backend>
