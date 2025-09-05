@@ -18,13 +18,13 @@ namedValues:
       value: "894a16e1-bc04-414e-9ec3-d21317b5da5c"
 loggers:
   - name: demo-appinsight
-      properties:
-        loggerType: applicationInsights
-        description: prod application insights
-        resourceId: "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/microsoft.insights/components/demo-appinsights-prod"
-        credentials:
-          instrumentationKey: "{{Logger-Credentials-AppInsights}}"
-        isBuffered: true
+    properties:
+      loggerType: applicationInsights
+      description: prod application insights
+      resourceId: "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/microsoft.insights/components/demo-appinsights-prod"
+      credentials:
+        instrumentationKey: "{{Logger-Credentials-AppInsights}}"
+      isBuffered: true
 diagnostics:
 backends:
   - name: apim-function-001 #from fa
