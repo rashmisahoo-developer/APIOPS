@@ -8,10 +8,10 @@ namedValues:
     properties:
       displayName: secret
       value: "PRODsecret"
-  # - name: apim-function-001-key
-  #   properties:
-  #     displayName: apim-function-001-key
-  #     value: "pwKT3IwuFr06WxMc6k7QgQWI98ixhRUnQPVn6GGSOMQNAzFu2l5-vA=="
+  - name: apim-function-001-key
+    properties:
+      displayName: apim-function-001-key
+      value: "F63btYdUK-LbUz2gm8XoLsP2pTipt0S-cuHU4ig-YFpzAzFubTvgVQ=="
   # - name: 68bb238d46346119205e1095
   #   properties:
   #     displayName: Logger-Credentials-AppInsights
@@ -26,9 +26,9 @@ loggers:
   #       instrumentationKey: "{{Logger-Credentials-AppInsights}}"
   #     isBuffered: true
 diagnostics:
-# backends:
-#   - name: apim-function-001 #from fa
-#     properties:
-#       url: "https://demo-func-prod-bzf0a4c8dyexhegt.canadacentral-01.azurewebsites.net/api"
-#       resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/demo-func-PROD_group/providers/Microsoft.Web/sitesdemo-func-PROD" #to fa
+backends:
+  - name: apim-function-001 #from fa
+    properties:
+      url: "https://demo-func-prod-bzf0a4c8dyexhegt.canadacentral-01.azurewebsites.net/api"
+      resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.Web/sites/demo-func-PROD" #to fa
 apis:
