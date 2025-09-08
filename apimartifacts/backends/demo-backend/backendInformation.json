@@ -10,6 +10,6 @@
       "validateCertificateName": true
     },
     "type": "Single",
-    "url": "https://example.com"
+    "url": "http://example.com"
   }
 }
