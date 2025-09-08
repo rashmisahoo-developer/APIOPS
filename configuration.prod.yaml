@@ -32,3 +32,7 @@ backends:
       url: "https://demo-func-prod-bzf0a4c8dyexhegt.canadacentral-01.azurewebsites.net/api"
       resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.Web/sites/demo-func-PROD" #to fa
 apis:
+  - name: swagger-petstore-openapi-3-0
+    properties:
+      displayName: "Swagger Petstore Openapi 3.0"
+      path: "rest/pet"
