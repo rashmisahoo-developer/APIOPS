@@ -1,8 +1,0 @@
-{
-  "properties": {
-    "displayName": "subscription-echo",
-    "scope": "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.ApiManagement/service/dev-apim-cicd/apis/echo-api",
-    "allowTracing": false,
-    "state": "active"
-  }
-}
