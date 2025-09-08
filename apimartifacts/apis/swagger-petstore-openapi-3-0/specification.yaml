@@ -10,7 +10,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: '1.0'
 servers:
-  - url: https://dev-apim-cicd.azure-api.net/petstore
+  - url: https://dev-apim-cicd1.azure-api.net
 paths:
   /pet:
     put:
@@ -421,7 +421,9 @@ paths:
             schema:
               type: string
               format: binary
-            example: ''
+            examples:
+              default:
+                value: 
       responses:
         '200':
           description: successful operation
