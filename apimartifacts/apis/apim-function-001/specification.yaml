@@ -9,12 +9,14 @@ paths:
   /apim-trigger:
     get:
       summary: apim-trigger
+      description: apim-trigger
       operationId: get-apim-trigger
       responses:
         '200':
           description: ''
     post:
       summary: apim-trigger
+      description: apim-trigger
       operationId: post-apim-trigger
       responses:
         '200':
