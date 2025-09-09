@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: apim-function-001
-  description: Import from "apim-function-001" Function App
+  description: "Import from \"apim-function-001\" Function App\nUpdated"
   version: '1.0'
 servers:
   - url: https://dev-apim-cicd1.azure-api.net/apim-function-001
