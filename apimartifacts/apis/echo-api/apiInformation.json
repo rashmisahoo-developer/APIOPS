@@ -1,6 +1,6 @@
 {
   "properties": {
-    "path": "echo",
+    "path": "rest/echo",
     "apiRevision": "1",
     "authenticationSettings": {},
     "isCurrent": true,
