@@ -9,7 +9,6 @@
 	<inbound>
 		<base />
 		<include-fragment fragment-id="common-security-policy" />
-		<rate-limit-by-key calls="10" renewal-period="120" counter-key="@(context.Subscription?.Key ?? "anonymous")" />
 	</inbound>
 	<!-- Control if and how the requests are forwarded to services  -->
 	<backend>
