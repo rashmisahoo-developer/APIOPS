@@ -3,7 +3,7 @@ info:
   title: Echo API
   version: '1.0'
 servers:
-  - url: https://dev-apim-cicd1.azure-api.net/echo
+  - url: https://dev-apim-cicd1.azure-api.net/rest/echo
 paths:
   /resource:
     get:
