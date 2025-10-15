@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       CONFIGURATION_YAML_PATH:
-        description: 'Choose Wether to extract all Apis or extract apis listed an extraction configuration file'     
+        description: 'Choose Whether to extract all Apis or extract apis listed an extraction configuration file'     
         required: true
         type: choice
         options:
@@ -24,7 +24,7 @@ env:
 
 jobs:
   extract:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: dev # change this to match the dev environment created in settings 
     steps:
       - uses: actions/checkout@v4
@@ -152,7 +152,7 @@ jobs:
           
   create-pull-request:
     needs: extract
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     permissions:
       contents: write
       pull-requests: write
