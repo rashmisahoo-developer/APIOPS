@@ -2,7 +2,7 @@
 # More information about workspaces can be found here https://learn.microsoft.com/en-us/azure/api-management/workspaces-overview
 
  apiNames:
-  - apim-function-001
+  - dev-apim-func-01
 
  backendNames:
   
