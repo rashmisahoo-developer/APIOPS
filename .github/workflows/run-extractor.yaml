@@ -8,6 +8,7 @@ on:
         required: true
         type: choice
         options:
+        - Extract All APIs
         - configuration.extractor.yaml
       API_SPECIFICATION_FORMAT:
         description: 'API Specification Format'     
@@ -24,77 +25,54 @@ env:
 
 jobs:
   extract:
-    runs-on: self-hosted
-    environment: dev # change this to match the dev environment created in settings 
+    runs-on: self-hosted   # ✅ use your own runner instead of ubuntu
+    environment: dev
     steps:
       - uses: actions/checkout@v4
           
       - name: Run extractor without Config Yaml
         if: ${{ github.event.inputs.CONFIGURATION_YAML_PATH == 'Extract All APIs' }}
         env:
-          # AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          # AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          # AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
           AZURE_RESOURCE_GROUP_NAME: ${{ vars.AZURE_RESOURCE_GROUP_NAME }}
           API_MANAGEMENT_SERVICE_NAME: ${{ vars.API_MANAGEMENT_SERVICE_NAME }}
-          API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: ${{ GITHUB.WORKSPACE }}/apimartifacts  # change this to the artifacts folder
+          API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: ${{ GITHUB.WORKSPACE }}/apimartifacts
           API_SPECIFICATION_FORMAT: ${{ github.event.inputs.API_SPECIFICATION_FORMAT }} 
         run: |
           Set-StrictMode -Version Latest
           $ErrorActionPreference = "Stop"
           $VerbosePreference = "Continue"
           $InformationPreference = "Continue"
-
           Write-Information "Setting name variables..."
-          $releaseFileName = "extractor-linux-x64.zip"
-          $executableFileName = "extractor"
-
-          if ("${{ runner.os }}" -like "*win*") {
-            $releaseFileName = "extractor-win-x64.zip"
-            $executableFileName = "extractor.exe"
-          }
-          elseif ("${{ runner.os }}" -like "*mac*" -and "${{ runner.arch }}" -like "*arm*") {
-            $releaseFileName = "extractor-osx-arm64.zip"
-          }
-          elseif ("${{ runner.os }}" -like "*mac*" -and "${{ runner.arch }}" -like "*x86_64*") {
-            $releaseFileName = "extractor-osx-x64.zip"
-          }
-
+          $releaseFileName = "extractor-win-x64.zip"
+          $executableFileName = "extractor.exe"
           Write-Information "Downloading release..."
           $uri = "https://github.com/Azure/apiops/releases/download/${{ env.apiops_release_version }}/$releaseFileName"
           $downloadFilePath = Join-Path "${{ runner.temp }}" $releaseFileName
           Invoke-WebRequest -Uri "$uri" -OutFile "$downloadFilePath"
-
           Write-Information "Extracting release..."
           $executableFolderPath = Join-Path "${{ runner.temp }}" "extractor"
-          Expand-Archive -Path "$downloadFilePath" -DestinationPath "$executableFolderPath"
+          Expand-Archive -Path "$downloadFilePath" -DestinationPath "$executableFolderPath" -Force
           $executableFilePath = Join-Path "$executableFolderPath" $executableFileName
-
-          Write-Information "Setting file permissions..."
-          if ("${{ runner.os }}" -like "*linux*")
-          {
-            & chmod +x "$executableFilePath"
-            if ($LASTEXITCODE -ne 0) { throw "Setting file permissions failed."}
-          }
-
           Write-Information "Running extractor..."
-          & "$executableFilePath"              
-          if ($LASTEXITCODE -ne 0) { throw "Running extractor failed."}
-
+          & "$executableFilePath"
+          if ($LASTEXITCODE -ne 0) { throw "Running extractor failed." }
           Write-Information "Execution complete."
-        shell: pwsh
+        shell: powershell   # ✅ use Windows PowerShell
       
       - name: Run extractor with Config Yaml
         if: ${{ github.event.inputs.CONFIGURATION_YAML_PATH != 'Extract All APIs' }}
         env:
-          # AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          # AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          # AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
           AZURE_RESOURCE_GROUP_NAME: ${{ vars.AZURE_RESOURCE_GROUP_NAME }}
           API_MANAGEMENT_SERVICE_NAME: ${{ vars.API_MANAGEMENT_SERVICE_NAME }}
-          API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: ${{ GITHUB.WORKSPACE }}/apimartifacts  # change this to the artifacts folder
+          API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: ${{ GITHUB.WORKSPACE }}/apimartifacts
           API_SPECIFICATION_FORMAT: ${{ github.event.inputs.API_SPECIFICATION_FORMAT }} 
           CONFIGURATION_YAML_PATH:  ${{ GITHUB.WORKSPACE }}/${{ github.event.inputs.CONFIGURATION_YAML_PATH }}
         run: |
@@ -102,57 +80,32 @@ jobs:
           $ErrorActionPreference = "Stop"
           $VerbosePreference = "Continue"
           $InformationPreference = "Continue"
-
           Write-Information "Setting name variables..."
-          $releaseFileName = "extractor-linux-x64.zip"
-          $executableFileName = "extractor"
-
-          if ("${{ runner.os }}" -like "*win*") {
-            $releaseFileName = "extractor-win-x64.zip"
-            $executableFileName = "extractor.exe"
-          }
-          elseif ("${{ runner.os }}" -like "*mac*" -and "${{ runner.arch }}" -like "*arm*") {
-            $releaseFileName = "extractor-osx-arm64.zip"
-          }
-          elseif ("${{ runner.os }}" -like "*mac*" -and "${{ runner.arch }}" -like "*x86_64*") {
-            $releaseFileName = "extractor-osx-x64.zip"
-          }
-
+          $releaseFileName = "extractor-win-x64.zip"
+          $executableFileName = "extractor.exe"
           Write-Information "Downloading release..."
           $uri = "https://github.com/Azure/apiops/releases/download/${{ env.apiops_release_version }}/$releaseFileName"
           $downloadFilePath = Join-Path "${{ runner.temp }}" $releaseFileName
           Invoke-WebRequest -Uri "$uri" -OutFile "$downloadFilePath"
-
           Write-Information "Extracting release..."
           $executableFolderPath = Join-Path "${{ runner.temp }}" "extractor"
-          Expand-Archive -Path "$downloadFilePath" -DestinationPath "$executableFolderPath"
+          Expand-Archive -Path "$downloadFilePath" -DestinationPath "$executableFolderPath" -Force
           $executableFilePath = Join-Path "$executableFolderPath" $executableFileName
-
-          Write-Information "Setting file permissions..."
-          if ("${{ runner.os }}" -like "*linux*")
-          {
-            & chmod +x "$executableFilePath"
-            if ($LASTEXITCODE -ne 0) { throw "Setting file permissions failed."}
-          }
-
           Write-Information "Running extractor..."
-          & "$executableFilePath"              
-          if ($LASTEXITCODE -ne 0) { throw "Running extractor failed."}
-
+          & "$executableFilePath"
+          if ($LASTEXITCODE -ne 0) { throw "Running extractor failed." }
           Write-Information "Execution complete."
-        shell: pwsh
+        shell: powershell   # ✅ use Windows PowerShell
 
       - name: publish artifact
         uses: actions/upload-artifact@v4
-        env:
-          API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts  # change this to the artifacts folder  
         with:
           name: artifacts-from-portal
-          path: ${{ GITHUB.WORKSPACE }}/${{ env.API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH }}    
-          
+          path: ${{ GITHUB.WORKSPACE }}/apimartifacts    
+
   create-pull-request:
     needs: extract
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
@@ -162,20 +115,16 @@ jobs:
           
       - name: Download artifacts-from-portal
         uses: actions/download-artifact@v4
-        env:
-          API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts  # change this to the artifacts folder  
         with:
           name: artifacts-from-portal
-          path: "${{ GITHUB.WORKSPACE }}/${{ env.API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH }}"
+          path: "${{ GITHUB.WORKSPACE }}/apimartifacts"
 
       - name: Create artifacts pull request
         uses: peter-evans/create-pull-request@v6
-        env:
-          API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts  # change this to the artifacts folder          
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "updated extract from apim instance ${{ env.API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH }}"
-          title: "${{ env.API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH }} - extract"
+          commit-message: "updated extract from apim instance apimartifacts"
+          title: "apimartifacts - extract"
           body: >
             This PR is auto-generated by Github actions workflow
-          labels: extract, automated pr      
+          labels: extract, automated pr
