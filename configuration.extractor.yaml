@@ -1,27 +1,20 @@
-# Note: With the introduction of workspaces we recommend using workspaces with APIOps when possible to limit what can be extracted whenever possible. 
-# More information about workspaces can be found here https://learn.microsoft.com/en-us/azure/api-management/workspaces-overview
-
- apiNames:
+apiNames:
   - dev-apim-func-01
 
- backendNames:
-  
+backendNames:
+  - dev-apim-func-01
 
- diagnosticNames:
- 
+diagnosticNames: []
 
- loggerNames:
+loggerNames: []
 
+namedValueNames:
+  - dev-apim-func-01-key   # The named value containing the API key
 
- namedValueNames:
- 
- productNames:
- 
+productNames: []
 
- subscriptionNames:
+subscriptionNames: []
 
+tagNames: []
 
- tagNames:
-
-  
- policyFragmentNames:
+policyFragmentNames: []
