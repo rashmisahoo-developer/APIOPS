@@ -1,38 +1,22 @@
-apimServiceName: prod-apim-cicd
+apimServiceName: test-apim-100
 namedValues:
   - name: plainvalue
     properties:
       displayName: plainvalue
-      value: "https://www.prod.search2.com"
+      value: "Hello welcome to Prod"
   - name: secret
     properties:
       displayName: secret
       value: "PRODsecret"
-  - name: apim-function-001-key
+  - name: dev-apim-func-01
     properties:
-      displayName: apim-function-001-key
-      value: "F63btYdUK-LbUz2gm8XoLsP2pTipt0S-cuHU4ig-YFpzAzFubTvgVQ=="
-  - name: 68bec0c7217d2018dcec7d44
-    properties:
-      displayName: Logger-Credentials-AppInsights
-      value: "4364b3b0-9d9f-405c-b5ca-430e244d2be4"
+      displayName: dev-apim-func-01
+      value: "Iv8Fr8LZVg7lyTyNw8kPXZ2uhkZTV9kY12vqRenN3h2oAzFuiX9Bxw=="
 loggers:
-  - name: demo-appinsight
-    properties:
-      loggerType: applicationInsights
-      description: prod application insights
-      resourceId: "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/microsoft.insights/components/demo-appinsights-prod"
-      credentials:
-        instrumentationKey: "{{Logger-Credentials-AppInsights}}"
-      isBuffered: true
 diagnostics:
 backends:
-  - name: apim-function-001 #from fa
+  - name: dev-apim-func-01 #from fa
     properties:
-      url: "https://demo-func-prod-bzf0a4c8dyexhegt.canadacentral-01.azurewebsites.net/api"
-      resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.Web/sites/demo-func-PROD" #to fa
+      url: "https://test-apim-func-01-ayhcbyd3bxesg0c9.canadacentral-01.azurewebsites.net/api"
+      resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.Web/sites/test-apim-func-01" #to fa
 apis:
-  - name: swagger-petstore-openapi-3-0
-    properties:
-      displayName: "Swagger Petstore Openapi 3.0"
-      path: "rest/pet"
