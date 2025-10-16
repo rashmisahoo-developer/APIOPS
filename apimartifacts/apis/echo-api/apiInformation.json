@@ -1,15 +1,14 @@
 {
   "properties": {
-    "path": "dev-apim-func-01",
+    "path": "echo",
     "apiRevision": "1",
     "authenticationSettings": {},
-    "description": "Import from \u0022dev-apim-func-01\u0022 Function App",
     "isCurrent": true,
-    "displayName": "dev-apim-func-01",
+    "displayName": "Echo API",
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://dev-apim-100.azure-api.net/dev-apim-func-01",
+    "serviceUrl": "https://echo.playground.azure-api.net/api",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
