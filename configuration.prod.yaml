@@ -7,7 +7,7 @@ namedValues:
   - name: secret
     properties:
       displayName: secret
-      value: "PRODsecret"
+      value: "secret"
   - name: dev-apim-func-01-key
     properties:
       displayName: dev-apim-func-01-key
