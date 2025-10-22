@@ -11,7 +11,7 @@ namedValues:
   - name: dev-apim-func-01-key
     properties:
       displayName: dev-apim-func-01-key
-      value: "_DI1fn13nd8pWyhMOy7mDyHqIZQGH9jzVzCANQ-rOUXcAzFuSTFxWw=="
+      value: "BxuuOFyn9fKw8UAa31Tf6ZZCMlaQKvmCP8cg-InjVCAPAzFukGdGBQ=="
 loggers:
 diagnostics:
 backends:
