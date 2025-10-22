@@ -9,7 +9,6 @@
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://dev-apim-100.azure-api.net/dev-apim-func-01",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"

@@ -9,14 +9,12 @@ paths:
   /api-trigger:
     post:
       summary: api-trigger
-      description: api-trigger
       operationId: post-api-trigger
       responses:
         '200':
           description: ''
     get:
       summary: api-trigger
-      description: api-trigger
       operationId: get-api-trigger
       responses:
         '200':
