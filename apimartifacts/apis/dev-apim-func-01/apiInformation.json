@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "path": "dev-apim-func-01",
+    "apiRevision": "1",
+    "authenticationSettings": {},
+    "description": "Import from \u0022dev-apim-func-01\u0022 Function App",
+    "isCurrent": true,
+    "displayName": "dev-apim-func-01",
+    "protocols": [
+      "https"
+    ],
+    "serviceUrl": "https://dev-apim-100.azure-api.net/dev-apim-func-01",
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": true
+  }
+}

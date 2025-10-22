@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "credentials": {
+      "header": {
+        "x-functions-key": [
+          "{{dev-apim-func-01-key}}"
+        ]
+      }
+    },
+    "description": "dev-apim-func-01",
+    "protocol": "http",
+    "resourceId": "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.Web/sites/dev-apim-func-01",
+    "url": "https://dev-apim-func-01-awawbfa4cmffhyh7.canadacentral-01.azurewebsites.net/api"
+  }
+}
