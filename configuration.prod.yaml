@@ -17,6 +17,6 @@ diagnostics:
 backends:
   - name: dev-apim-func-01 #from fa
     properties:
-      url: "https://test-apim-func-01-ayhcbyd3bxesg0c9.eastus2-01.azurewebsites.net/api"
+      url: "https://test-apim-func-01-ayhcbyd3bxesg0c9.canadacentral-01.azurewebsites.net/api"
       resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.Web/sites/test-apim-func-01" #to fa
 apis:
