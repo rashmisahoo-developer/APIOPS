@@ -4,9 +4,9 @@ namedValues:
     properties:
       displayName: plainvalue
       value: "Hello welcome to Prod"
-  - name: secret
+  - name: secret-key
     properties:
-      displayName: secret
+      displayName: secret-key
       value: "secret"
   - name: dev-apim-func-01-key
     properties:
