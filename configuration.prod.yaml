@@ -12,7 +12,19 @@ namedValues:
     properties:
       displayName: dev-apim-func-01-key
       value: "BxuuOFyn9fKw8UAa31Tf6ZZCMlaQKvmCP8cg-InjVCAPAzFukGdGBQ=="
+  - name: Logger-Credentials-AppInsights
+    properties:
+      displayName: Logger-Credentials-AppInsights
+      value: "621df9c8-053b-4b9a-ba82-2a22e92af894"
 loggers:
+  - name: dev-appinsight
+      properties:
+        loggerType: applicationInsights
+        description: prod application insights
+        resourceId: "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/microsoft.insights/components/test-appinsight"
+        credentials:
+          instrumentationKey: "{{ Logger-Credentials-AppInsights }}"
+        isBuffered: true
 diagnostics:
 backends:
   - name: dev-apim-func-01 #from fa
