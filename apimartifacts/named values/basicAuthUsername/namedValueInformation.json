@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "displayName": "basicAuthUsername",
+    "secret": false,
+    "tags": [],
+    "value": "testuser"
+  }
+}
