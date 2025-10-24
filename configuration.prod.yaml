@@ -8,6 +8,22 @@ namedValues:
     properties:
       displayName: secret-key
       value: "secret"
+  - name: basicAuthPassword
+    properties:
+      displayName: basicAuthPassword
+      value: "rashmi"
+  - name: basicAuthUsername
+    properties:
+      displayName: basicAuthUsername
+      value: "testuser"
+  - name: user1-password
+    properties:
+      displayName: user1-password
+      value: "rashmi123"
+  - name: user1-username
+    properties:
+      displayName: user1-username
+      value: "tesuser1"
   - name: dev-apim-func-01-key
     properties:
       displayName: dev-apim-func-01-key
