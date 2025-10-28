@@ -1,7 +1,0 @@
-{
-  "properties": {
-    "displayName": "secret-key",
-    "secret": true,
-    "tags": []
-  }
-}
