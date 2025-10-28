@@ -17,7 +17,7 @@ on:
           - dev
 
       CONFIGURATION_FILE_NAME:
-        description: 'Choose the configuration file name which you want to deploy
+        description: 'Choose the configuration file name which you want to deploy'
         required: true
         type: choice
         default: configuration.prod.yaml
