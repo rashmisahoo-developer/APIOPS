@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "displayName": "dev-apim-func-01-key",
+    "secret": true,
+    "tags": [
+      "key",
+      "function",
+      "auto"
+    ]
+  }
+}
