@@ -1,0 +1,15 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: opened
+
+jobs:
+  custom-checks:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
