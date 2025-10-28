@@ -1,7 +1,0 @@
-{
-  "properties": {
-    "displayName": "user1-password",
-    "secret": true,
-    "tags": []
-  }
-}
