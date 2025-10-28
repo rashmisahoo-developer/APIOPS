@@ -13,8 +13,8 @@ on:
         type: choice
         default: prod
         options:
-        - prod
-        - dev
+          - prod
+          - dev
 
       CONFIGURATION_FILE_NAME:
         description: 'Choose the configuration file name which you want to deploy
