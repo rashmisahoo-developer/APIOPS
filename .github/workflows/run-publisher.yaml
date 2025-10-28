@@ -70,8 +70,8 @@ jobs:
     needs: [get-commit, Push-Changes-To-APIM-Dev-With-Commit-ID]
     uses: ./.github/workflows/run-publisher-with-env.yaml
     with:
-      API_MANAGEMENT_ENVIRONMENT: ENVIRONMENT_NAME_CHOICE # change this to match the dev environment created in settings
-      CONFIGURATION_YAML_PATH: CONFIGURATION_FILE_NAME
+      API_MANAGEMENT_ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT_NAME_CHOICE }} # change this to match the dev environment created in settings
+      CONFIGURATION_YAML_PATH: ${{ github.event.inputs.CONFIGURATION_FILE_NAME }}
       # API_MANAGEMENT_ENVIRONMENT: prod # change this to match the prod environment created in settings
       # CONFIGURATION_YAML_PATH: configuration.prod.yaml # make sure the file is available at the root
       API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
@@ -83,8 +83,8 @@ jobs:
     needs: [get-commit, Push-Changes-To-APIM-Dev-Without-Commit-ID]
     uses: ./.github/workflows/run-publisher-with-env.yaml
     with:
-      API_MANAGEMENT_ENVIRONMENT: ENVIRONMENT_NAME_CHOICE # change this to match the dev environment created in settings
-      CONFIGURATION_YAML_PATH: CONFIGURATION_FILE_NAME
+      API_MANAGEMENT_ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT_NAME_CHOICE }} # change this to match the dev environment created in settings
+      CONFIGURATION_YAML_PATH: ${{ github.event.inputs.CONFIGURATION_FILE_NAME }}
       # API_MANAGEMENT_ENVIRONMENT: prod # change this to match the prod environment created in settings
       # CONFIGURATION_YAML_PATH: configuration.prod.yaml # make sure the file is available at the root
       API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
