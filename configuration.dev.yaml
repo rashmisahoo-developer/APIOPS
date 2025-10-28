@@ -1,0 +1,50 @@
+apimServiceName: test-apim-100
+namedValues:
+  # - name: plainvalue
+  #   properties:
+  #     displayName: plainvalue
+  #     value: "Hello welcome to Prod"
+  # - name: secret-key
+  #   properties:
+  #     displayName: secret-key
+  #     value: "secret"
+  # - name: basicAuthPassword
+  #   properties:
+  #     displayName: basicAuthPassword
+  #     value: "rashmi"
+  # - name: basicAuthUsername
+  #   properties:
+  #     displayName: basicAuthUsername
+  #     value: "testuser"
+  # - name: user1-password
+  #   properties:
+  #     displayName: user1-password
+  #     value: "rashmi123"
+  # - name: user1-username
+  #   properties:
+  #     displayName: user1-username
+  #     value: "tesuser1"
+  - name: test-apim-func-01-key
+    properties:
+      displayName: test-apim-func-01-key
+      value: "gj5byvIQT0yw4xg11Hx4mURiKHh2sYXmz25iIaEN2Qo2oElCxirTTg=="
+  # - name: 68fa29e446346108c452f60e
+  #   properties:
+  #     displayName: Logger-Credentials-AppInsights
+  #     value: "621df9c8-053b-4b9a-ba82-2a22e92af894"
+# loggers:
+#   - name: dev-appinsight
+#     properties:
+#       loggerType: applicationInsights
+#       description: prod application insights
+#       resourceId: "/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/microsoft.insights/components/test-appinsight"
+#       credentials:
+#         instrumentationKey: "{{ Logger-Credentials-AppInsights }}"
+#       isBuffered: true
+diagnostics:
+backends:
+  - name: test-apim-func-01 #from fa
+    properties:
+      url: "https://dev-apim-func-01-awawbfa4cmffhyh7.eastus2-01.azurewebsites.net/api"
+      resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.Web/sites/dev-apim-func-01" #to fa
+apis:
