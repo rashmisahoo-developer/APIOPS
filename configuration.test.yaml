@@ -24,10 +24,10 @@ namedValues:
   #   properties:
   #     displayName: user1-username
   #     value: "tesuser1"
-  - name: test-apim-func-01-key
+  - name: dev-apim-func-01-key
     properties:
-      displayName: test-apim-func-01-key
-      value: "gj5byvIQT0yw4xg11Hx4mURiKHh2sYXmz25iIaEN2Qo2oElCxirTTg=="
+      displayName: dev-apim-func-01-key
+      value: "cXAXw_kcMARsYWC0d6a-wLEZpO_iDOqRRMh2zg_FU9F_AzFuKq531g=="
   # - name: 68fa29e446346108c452f60e
   #   properties:
   #     displayName: Logger-Credentials-AppInsights
@@ -43,8 +43,8 @@ namedValues:
 #       isBuffered: true
 diagnostics:
 backends:
-  - name: test-apim-func-01 #from fa
+  - name: dev-apim-func-01 #from fa
     properties:
-      url: "https://dev-apim-func-01-awawbfa4cmffhyh7.eastus2-01.azurewebsites.net/api"
-      resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.Web/sites/dev-apim-func-01" #to fa
+      url: "https://test-apim-func-01-ayhcbyd3bxesg0c9.eastus2-01.azurewebsites.net/api"
+      resourceId: "https://management.azure.com/subscriptions/ccaf9917-81ae-4a91-8352-8b2ecdeda64e/resourceGroups/apim-rg/providers/Microsoft.Web/sites/test-apim-func-01" #to fa
 apis:

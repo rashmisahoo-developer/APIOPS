@@ -7,14 +7,25 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      ENVIRONMENT_NAME_CHOICE:
-        description: 'Choose the environment where you want to deploy'
+      SOURCE_ENVIRONMENT_NAME:
+        description: 'Choose the source environment name'
+        required: true
+        type: choice
+        default: dev
+        options:
+          - dev
+          - test
+          - prod
+
+      DESTINATION_ENVIRONMENT_NAME:
+        description: 'Choose the destination environment name'
         required: true
         type: choice
         default: prod
         options:
-          - prod
           - dev
+          - test
+          - prod
 
       CONFIGURATION_FILE_NAME:
         description: 'Choose the configuration file name which you want to deploy'
@@ -23,7 +34,7 @@ on:
         default: configuration.prod.yaml
         options:
           - configuration.prod.yaml
-          - configuration.dev.yaml
+          - configuration.test.yaml
 
       COMMIT_ID_CHOICE:
         description: 'Choose "publish-all-artifacts-in-repo" only when you want to force republishing all artifacts (e.g. after build failure). Otherwise stick with the default behavior of "publish-artifacts-in-last-commit"'
@@ -50,7 +61,7 @@ jobs:
     needs: get-commit
     uses: ./.github/workflows/run-publisher-with-env.yaml
     with:
-      API_MANAGEMENT_ENVIRONMENT: dev # change this to match the dev environment created in settings
+      API_MANAGEMENT_ENVIRONMENT:  ${{ github.event.inputs.SOURCE_ENVIRONMENT_NAME }} # change this to match the dev environment created in settings
       COMMIT_ID: ${{ needs.get-commit.outputs.commit_id }}
       API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
     secrets: inherit
@@ -61,7 +72,7 @@ jobs:
     needs: get-commit
     uses: ./.github/workflows/run-publisher-with-env.yaml
     with:
-      API_MANAGEMENT_ENVIRONMENT: dev # change this to match the dev environment created in settings
+      API_MANAGEMENT_ENVIRONMENT:  ${{ github.event.inputs.SOURCE_ENVIRONMENT_NAME }} # change this to match the dev environment created in settings
       API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
     secrets: inherit
 
@@ -70,7 +81,7 @@ jobs:
     needs: [get-commit, Push-Changes-To-APIM-Dev-With-Commit-ID]
     uses: ./.github/workflows/run-publisher-with-env.yaml
     with:
-      API_MANAGEMENT_ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT_NAME_CHOICE }} # change this to match the dev environment created in settings
+      API_MANAGEMENT_ENVIRONMENT: ${{ github.event.inputs.DESTINATION_ENVIRONMENT_NAME }} # change this to match the dev environment created in settings
       CONFIGURATION_YAML_PATH: ${{ github.event.inputs.CONFIGURATION_FILE_NAME }}
       # API_MANAGEMENT_ENVIRONMENT: prod # change this to match the prod environment created in settings
       # CONFIGURATION_YAML_PATH: configuration.prod.yaml # make sure the file is available at the root
@@ -83,7 +94,7 @@ jobs:
     needs: [get-commit, Push-Changes-To-APIM-Dev-Without-Commit-ID]
     uses: ./.github/workflows/run-publisher-with-env.yaml
     with:
-      API_MANAGEMENT_ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT_NAME_CHOICE }} # change this to match the dev environment created in settings
+      API_MANAGEMENT_ENVIRONMENT: ${{ github.event.inputs.DESTINATION_ENVIRONMENT_NAME }} # change this to match the dev environment created in settings
       CONFIGURATION_YAML_PATH: ${{ github.event.inputs.CONFIGURATION_FILE_NAME }}
       # API_MANAGEMENT_ENVIRONMENT: prod # change this to match the prod environment created in settings
       # CONFIGURATION_YAML_PATH: configuration.prod.yaml # make sure the file is available at the root
