@@ -15,7 +15,7 @@ on:
         options:
           - dev
           - test
-          - prod
+          
 
       DESTINATION_ENVIRONMENT_NAME:
         description: 'Choose the destination environment name'
@@ -23,7 +23,6 @@ on:
         type: choice
         default: prod
         options:
-          - dev
           - test
           - prod
 
