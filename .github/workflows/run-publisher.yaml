@@ -26,15 +26,6 @@ on:
           - test
           - prod
 
-      CONFIGURATION_FILE_NAME:
-        description: 'Choose the configuration file name which you want to deploy'
-        required: true
-        type: choice
-        default: configuration.prod.yaml
-        options:
-          - configuration.prod.yaml
-          - configuration.test.yaml
-
       COMMIT_ID_CHOICE:
         description: 'Choose "publish-all-artifacts-in-repo" only when you want to force republishing all artifacts (e.g. after build failure). Otherwise stick with the default behavior of "publish-artifacts-in-last-commit"'
         required: true
@@ -81,7 +72,7 @@ jobs:
     uses: ./.github/workflows/run-publisher-with-env.yaml
     with:
       API_MANAGEMENT_ENVIRONMENT: ${{ github.event.inputs.DESTINATION_ENVIRONMENT_NAME }} # change this to match the dev environment created in settings
-      CONFIGURATION_YAML_PATH: ${{ github.event.inputs.CONFIGURATION_FILE_NAME }}
+      CONFIGURATION_YAML_PATH: ${{ github.event.inputs.DESTINATION_ENVIRONMENT_NAME == 'prod' && 'configuration.prod.yaml' || 'configuration.test.yaml' }}
       # API_MANAGEMENT_ENVIRONMENT: prod # change this to match the prod environment created in settings
       # CONFIGURATION_YAML_PATH: configuration.prod.yaml # make sure the file is available at the root
       API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
@@ -94,7 +85,7 @@ jobs:
     uses: ./.github/workflows/run-publisher-with-env.yaml
     with:
       API_MANAGEMENT_ENVIRONMENT: ${{ github.event.inputs.DESTINATION_ENVIRONMENT_NAME }} # change this to match the dev environment created in settings
-      CONFIGURATION_YAML_PATH: ${{ github.event.inputs.CONFIGURATION_FILE_NAME }}
+      CONFIGURATION_YAML_PATH: ${{ github.event.inputs.DESTINATION_ENVIRONMENT_NAME == 'prod' && 'configuration.prod.yaml' || 'configuration.test.yaml' }}
       # API_MANAGEMENT_ENVIRONMENT: prod # change this to match the prod environment created in settings
       # CONFIGURATION_YAML_PATH: configuration.prod.yaml # make sure the file is available at the root
       API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
